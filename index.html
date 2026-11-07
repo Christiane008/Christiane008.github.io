@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RAVELOSON Anja Christine – Projets</title>
+<title>RAVELOSON Anja Christiane – Projets</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -90,8 +90,8 @@ pre{margin:0;padding:16px;overflow-x:auto;font:400 .84rem/1.6 "JetBrains Mono",u
 <body>
 <main class="wrap">
   <div id="home">
-    <h1 class="name">RAVELOSON<br>Anja Christine</h1>
-    <p class="intro">Étudiante en informatique. Voici les projets de mes deux premières années dont je suis le plus fière : des applications complètes, avec de vraies règles métier, des tests et une documentation, en Python, TypeScript et Java.</p>
+    <h1 class="name">RAVELOSON<br>Anja Christiane</h1>
+    <p class="intro">Étudiante en 3e année de Services Informatiques aux Organisations, spécialité génie logiciel, à ESMIA Innovation. Voici quelques projets sur lesquels j’ai travaillé au cours de mes études supérieures : des applications complètes, avec de vraies règles métier, des tests et une documentation, en Python et TypeScript.</p>
     <nav class="index" id="index" aria-label="Projets"></nav>
     <section class="earlier" aria-labelledby="earlier-h">
       <h2 id="earlier-h">Projets plus anciens</h2>
@@ -109,12 +109,10 @@ const GITHUB_USER = "Christiane008";
 /* Nom du dépôt GitHub de chaque projet. Ajoute l’URL d’une démo en ligne si tu en déploies une. */
 const REPOS = {
   "pharmagest":     { repo: "pharmagest",              demo: "" },
-  "numerique-2035": { repo: "numerique-malagasy-2035", demo: "" },
-  "garage":         { repo: "garage-spring-boot",      demo: "" },
+  "madagov":        { repo: "madagov",                 demo: "" },
   "tantsaha":       { repo: "tantsaha-connect",        demo: "" }
 };
 const EARLIER = [
-  { title:"MadaGov", repo:"madagov", text:"Première version du portail d’administration en ligne, avant qu’il devienne Numérique Malagasy 2035. React, TypeScript, Supabase." },
   { title:"Jeux en Python", repo:"python-games", text:"Tetris, Puissance 4, Snake et Pong, écrits en apprenant Python avec pygame, tkinter et turtle." }
 ];
 const gh = repo => `https://github.com/${GITHUB_USER}/${repo}`;
@@ -172,97 +170,46 @@ python manage.py test           # lancer les tests`,
     stack:["Python","Django","SQLite / PostgreSQL","Bootstrap 5","ReportLab","Pillow","Chart.js"]
   },
   {
-    id:"numerique-2035", title:"Numérique Malagasy 2035", kind:"Portail d’administration en ligne, React + Supabase",
-    pitch:"Un portail où les citoyens malgaches demandent leurs documents officiels en ligne, avec un moteur algorithmique écrit à la main qui priorise et oriente les demandes.",
-    langs:{tsx:6445, ts:2307, md:469, css:30},
-    facts:[["5","algorithmes codés à la main"],["10","documents de conception"],["≈ 8 800","lignes de TS/TSX"],["2","versions"]],
+    id:"madagov", title:"MadaGov", kind:"Portail d’administration en ligne, React + Supabase",
+    pitch:"Un portail où les citoyens malgaches demandent leurs documents officiels en ligne, avec un espace agents qui priorise les dossiers grâce à des algorithmes écrits à la main.",
+    langs:{tsx:3211, ts:434, css:33},
+    facts:[["19","services administratifs"],["7","tables PostgreSQL"],["22","règles de sécurité (RLS)"],["13","écrans citoyen et admin"]],
     about:[
-      "Les citoyens s’inscrivent, parcourent le catalogue des services administratifs, déposent une demande avec pièces jointes, suivent son avancement et téléchargent le document officiel final. Les agents disposent d’un tableau de bord pour examiner, valider ou rejeter les demandes, générer ou téléverser le document et gérer les services proposés.",
-      "Le projet a commencé par une première version appelée MadaGov, puis a été reconstruit avec une architecture plus propre, un module algorithmique complet et une documentation complète."
+      "Les citoyens créent un compte, parcourent le catalogue des services (identité, état civil, foncier, fiscalité, santé, éducation), déposent une demande et suivent son avancement. Chaque changement de statut leur envoie une notification, et n’importe qui peut suivre un dossier avec son numéro de référence.",
+      "Côté administration, les agents disposent d’un tableau de bord, de la liste des demandes à traiter, de la gestion des citoyens, des services, des agents et de rapports statistiques."
     ],
     highlights:[
-      "Algorithmes implémentés à la main : KMP et Trie pour la recherche et l’autocomplétion des services, tas binaire pour prioriser les demandes, Dijkstra sur liste d’adjacence pour recommander le meilleur guichet, et arbre de Fenwick pour les statistiques glissantes.",
-      "Un ordonnanceur glouton par priorité est comparé à une file FIFO, avec un script de benchmark qui mesure l’écart.",
-      "Tests unitaires pour la recherche, l’ordonnancement et le routage.",
-      "Back-end Supabase : authentification, schéma PostgreSQL avec migrations et stockage des documents des citoyens.",
-      "Dossier complet : cahier des charges, architecture, schéma de base de données, diagrammes UML de cas d’utilisation, de classes et de séquence, protocole de tests et pitch de cinq minutes."
+      "Base PostgreSQL sur Supabase conçue de A à Z : 7 tables, 22 règles de sécurité au niveau des lignes (Row Level Security) pour qu’un citoyen ne voie que ses propres dossiers, et des triggers qui créent le profil à l’inscription et notifient le citoyen à chaque changement de statut.",
+      "Algorithmes écrits à la main : recherche KMP et Trie pour l’autocomplétion des services, tas binaire (min-heap) et ordonnancement glouton pour classer les dossiers urgents, Top-K pour les statistiques.",
+      "Benchmark intégré qui compare la recherche naïve O(n×m) à KMP O(n+m).",
+      "Rôles d’administration (super admin, manager, agent, lecteur), historique complet des statuts de chaque dossier et déconnexion automatique après inactivité.",
+      "Démo en ligne sans base de données : un mode démo remplace Supabase par des données fictives stockées dans le navigateur, publié automatiquement sur GitHub Pages."
     ],
-    code:{file:"lib/algorithms/dijkstra.ts", src:
-`export function dijkstra(graph: Graph, start: string): Record<string, number> {
-  const dist: Record<string, number> = {};
-  const visited: Record<string, boolean> = {};
-  for (const node of Object.keys(graph)) {
-    dist[node] = Infinity;
-    visited[node] = false;
-  }
-  dist[start] = 0;
-  const pq = new MinHeap<string>();
-  pq.push(0, start);
+    code:{file:"src/lib/algorithms.ts", src:
+`// Compute urgency score for an application (lower = more urgent)
+export function computeUrgencyScore(createdAt: string, processingDays: number): number {
+  const created = new Date(createdAt).getTime();
+  const deadline = created + processingDays * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  return deadline - now; // negative = overdue
+}
 
-  while (pq.size() > 0) {
-    const top = pq.pop();
-    if (!top) break;
-    const { key: d, value: u } = top;
-    if (visited[u]) continue;
-    visited[u] = true;
-    for (const edge of graph[u] || []) {
-      const alt = d + edge.weight;
-      if (alt < (dist[edge.to] ?? Infinity)) {
-        dist[edge.to] = alt;
-        pq.push(alt, edge.to);
-      }
+export function greedySchedule(items: SchedulableItem[]): SchedulableItem[] {
+  const heap = new MinHeap<SchedulableItem>();
+  for (const item of items) {
+    if (item.status === 'pending' || item.status === 'in_review') {
+      const score = computeUrgencyScore(item.created_at, item.processing_days);
+      heap.insert(score, item);
     }
   }
-  return dist;
+  return heap.toSortedArray().map(h => h.value);
 }`},
     run:
 `npm install
-# .env: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
-npm run dev
-npm test             # tests unitaires des algorithmes
-npm run benchmark    # FIFO contre ordonnancement par priorité`,
+npm run dev            # sans .env : démarre en mode démo
+# avec Supabase : renseigner VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY
+# dans .env, puis exécuter supabase/migrations dans l’éditeur SQL`,
     stack:["React","TypeScript","Vite","Tailwind CSS","Supabase","PostgreSQL"]
-  },
-  {
-    id:"garage", title:"Garage", kind:"Application back-end, Spring Boot",
-    pitch:"Gestion d’un garage automobile, avec une interface web et une API REST construites sur les mêmes services.",
-    langs:{java:2897, html:555},
-    facts:[["5","ressources REST"],["3","rôles de sécurité"],["5","exceptions métier"],["Java 17","Spring Boot"]],
-    about:[
-      "Garage suit les clients, véhicules, mécaniciens, interventions, pièces détachées et factures. La clôture d’une intervention génère automatiquement sa facture, et les pièces utilisées sont déduites du stock.",
-      "Les mêmes services métier alimentent deux accès : des pages Thymeleaf rendues côté serveur pour l’accueil, et une API JSON pour d’autres clients."
-    ],
-    highlights:[
-      "Architecture en couches : entités, repositories, services, DTO et mappers, avec des contrôleurs web et REST séparés.",
-      "API REST sous /api pour les clients, véhicules, interventions, pièces et factures, y compris la clôture d’une intervention et l’ajout ou le retrait de pièces.",
-      "Spring Security avec trois rôles : administrateur, mécanicien et accueil.",
-      "Exceptions métier (stock insuffisant, kilométrage invalide, opération non autorisée) gérées par un gestionnaire d’erreurs pour l’API et un autre pour les pages web.",
-      "Recherche paginée des interventions par statut et période, et jeu de données de démonstration chargé au démarrage."
-    ],
-    code:{file:"service/InterventionService.java", src:
-`@Transactional
-public Intervention cloturer(Long id) {
-    log.info("Clôture de l'intervention {}", id);
-    Intervention intervention = trouverParId(id);
-
-    if (intervention.getStatut() == StatutIntervention.TERMINEE
-            || intervention.getStatut() == StatutIntervention.ANNULEE) {
-        throw new OperationNonAutoriseeException(
-                "Impossible de clôturer une intervention déjà " + intervention.getStatut());
-    }
-
-    intervention.setStatut(StatutIntervention.TERMINEE);
-    intervention.setDateFin(LocalDate.now());
-    Intervention sauvegardee = interventionRepository.save(intervention);
-
-    factureService.genererPour(sauvegardee);
-    return sauvegardee;
-}`},
-    run:
-`# renseigner l’URL, l’utilisateur et le mot de passe MySQL dans
-# src/main/resources/application.properties
-mvn spring-boot:run`,
-    stack:["Java 17","Spring Boot","Spring Data JPA","Spring Security","Thymeleaf","MySQL","Maven"]
   },
   {
     id:"tantsaha", title:"Tantsaha Connect", kind:"Prototype d’application mobile, React", minor:true,
@@ -364,8 +311,8 @@ function route(){
   const p = PROJECTS.find(x=>x.id===id);
   document.getElementById("home").hidden = !!p;
   document.getElementById("detail").hidden = !p;
-  if (p){ renderDetail(p); document.title = p.title+" – RAVELOSON Anja Christine"; window.scrollTo(0,0); }
-  else { document.title = "RAVELOSON Anja Christine – Projets"; }
+  if (p){ renderDetail(p); document.title = p.title+" – RAVELOSON Anja Christiane"; window.scrollTo(0,0); }
+  else { document.title = "RAVELOSON Anja Christiane – Projets"; }
 }
 function renderEarlier(){
   const box = document.getElementById("earlier-list");
