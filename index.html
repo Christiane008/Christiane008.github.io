@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAVELOSON Anja Christine – Projets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --ink:#1B1E2B; --muted:#565C6D; --line:#DADDE4; --accent:#3044C4; --codebg:#F0F2F7;
+  --py:#3E6FB0; --html:#D2603A; --css:#7A55B8; --java:#A8761F; --ts:#2B79BC; --tsx:#3C9DB2; --md:#7C8494;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12141C; --surface:#1A1D28; --ink:#E8EAF2; --muted:#A0A6B8; --line:#2C3040; --accent:#8C9BFF; --codebg:#202433;
+    --py:#6E9BD8; --html:#E8845F; --css:#A889DE; --java:#D3A24A; --ts:#5BA3E0; --tsx:#62C2D6; --md:#9AA2B2;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12141C; --surface:#1A1D28; --ink:#E8EAF2; --muted:#A0A6B8; --line:#2C3040; --accent:#8C9BFF; --codebg:#202433;
+  --py:#6E9BD8; --html:#E8845F; --css:#A889DE; --java:#D3A24A; --ts:#5BA3E0; --tsx:#62C2D6; --md:#9AA2B2;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:900px;margin:0 auto;padding:56px 22px 96px}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em}
+.name{font-size:clamp(2.6rem,9.5vw,5.6rem);font-weight:800;letter-spacing:-.045em}
+.intro{max-width:58ch;color:var(--muted);font-size:1.12rem;margin:18px 0 0}
+.index{margin-top:56px;border-top:2px solid var(--ink)}
+.row{display:block;text-decoration:none;color:inherit;padding:30px 0 28px;border-bottom:1px solid var(--line)}
+.row:hover .rtitle{color:var(--accent)}
+.rtop{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.rtitle{font-size:clamp(1.6rem,4.4vw,2.35rem);font-weight:700;transition:color .15s}
+.rkind{color:var(--muted);font-size:.95rem}
+.rpitch{margin:8px 0 16px;max-width:62ch}
+.bar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line)}
+.bar span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:.88rem;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+.open{display:inline-block;margin-top:14px;font-weight:500;color:var(--accent)}
+.row.minor .rtitle{font-size:clamp(1.3rem,3.4vw,1.7rem)}
+.earlier{margin-top:52px}
+.earlier>h2{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:var(--muted)}
+.erow{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.erow h3{font-size:1.1rem;font-weight:700}
+.erow h3 a{text-decoration:none}
+.erow p{margin:0;color:var(--muted)}
+@media (max-width:560px){.erow{grid-template-columns:1fr}}
+.foot{margin-top:40px;color:var(--muted);font-size:.95rem;max-width:62ch}
+
+/* detail view */
+.back{display:inline-block;margin-bottom:34px;font-weight:500;text-decoration:none}
+.dkind{color:var(--muted);margin-bottom:10px}
+.dtitle{font-size:clamp(2.4rem,8vw,4.4rem);font-weight:800;letter-spacing:-.035em}
+.dpitch{font-size:1.2rem;max-width:56ch;margin:16px 0 22px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:30px 0 8px}
+.facts div{background:var(--surface);padding:14px 16px}
+.facts b{display:block;font-size:1.35rem;font-weight:700}
+.facts small{color:var(--muted);font-size:.88rem}
+.block{margin-top:46px}
+.block h2{font-size:1.35rem;font-weight:700;margin-bottom:12px}
+.block p{max-width:66ch;margin:0 0 12px}
+.hl{list-style:none;padding:0;margin:0;max-width:70ch}
+.hl li{padding:12px 0 12px 22px;border-top:1px solid var(--line);position:relative}
+.hl li::before{content:"";position:absolute;left:2px;top:22px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.codebox{background:var(--codebg);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.codehead{padding:9px 14px;border-bottom:1px solid var(--line);font:500 .82rem "JetBrains Mono",ui-monospace,monospace;color:var(--muted)}
+pre{margin:0;padding:16px;overflow-x:auto;font:400 .84rem/1.6 "JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;color:var(--ink);tab-size:4}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack span{padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem}
+.nextp{margin-top:60px;padding-top:26px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.nextp a{text-decoration:none;font-weight:700;font-size:1.15rem}
+.nextp small{display:block;color:var(--muted);font-weight:400;font-size:.88rem}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.rtitle{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div id="home">
+    <h1 class="name">RAVELOSON<br>Anja Christine</h1>
+    <p class="intro">Étudiante en informatique. Voici les projets de mes deux premières années dont je suis le plus fière : des applications complètes, avec de vraies règles métier, des tests et une documentation, en Python, TypeScript et Java.</p>
+    <nav class="index" id="index" aria-label="Projets"></nav>
+    <section class="earlier" aria-labelledby="earlier-h">
+      <h2 id="earlier-h">Projets plus anciens</h2>
+      <div id="earlier-list"></div>
+    </section>
+    <p class="foot">Chaque projet présente ce qu’il fait, comment il est construit, un extrait de son code et comment le lancer. Tout le code est sur <a id="gh-profile" href="#">GitHub</a>.</p>
+  </div>
+  <article id="detail" hidden></article>
+</main>
+
+<script>
+/* ===== À MODIFIER ===== Ton nom d’utilisateur GitHub, utilisé pour tous les liens de la page. */
+const GITHUB_USER = "Christiane008";
+
+/* Nom du dépôt GitHub de chaque projet. Ajoute l’URL d’une démo en ligne si tu en déploies une. */
+const REPOS = {
+  "pharmagest":     { repo: "pharmagest",              demo: "" },
+  "numerique-2035": { repo: "numerique-malagasy-2035", demo: "" },
+  "garage":         { repo: "garage-spring-boot",      demo: "" },
+  "tantsaha":       { repo: "tantsaha-connect",        demo: "" }
+};
+const EARLIER = [
+  { title:"MadaGov", repo:"madagov", text:"Première version du portail d’administration en ligne, avant qu’il devienne Numérique Malagasy 2035. React, TypeScript, Supabase." },
+  { title:"Jeux en Python", repo:"python-games", text:"Tetris, Puissance 4, Snake et Pong, écrits en apprenant Python avec pygame, tkinter et turtle." }
+];
+const gh = repo => `https://github.com/${GITHUB_USER}/${repo}`;
+
+const LANG = {
+  py:{name:"Python",v:"--py"}, html:{name:"Templates HTML",v:"--html"}, css:{name:"CSS",v:"--css"},
+  java:{name:"Java",v:"--java"}, ts:{name:"TypeScript",v:"--ts"}, tsx:{name:"TSX",v:"--tsx"}, md:{name:"Documentation (Markdown)",v:"--md"}
+};
+
+const PROJECTS = [
+  {
+    id:"pharmagest", title:"PharmaGest", kind:"Application web full-stack, Django",
+    pitch:"Logiciel de gestion de pharmacie avec stock par lots, suivi des péremptions et caisse selon les rôles.",
+    langs:{py:4503, html:918, css:127},
+    facts:[["51","tests automatisés"],["5","rôles utilisateurs"],["≈ 4 500","lignes de Python"],["8","applications Django"]],
+    about:[
+      "PharmaGest gère le quotidien d’une pharmacie : médicaments avec photos, fournisseurs, clients, commandes avec réceptions partielles, caisse, retours et rapports.",
+      "Le stock est suivi par lot avec sa date de péremption, et chaque vente puise d’abord dans le lot qui périme le plus tôt (FEFO). Cinq rôles – administrateur, pharmacien, gestionnaire de stock, caissier et responsable de gestion – ne voient que ce qui leur est autorisé."
+    ],
+    highlights:[
+      "Toute modification du stock passe par une seule couche de services. Chaque opération verrouille le lot avec select_for_update dans une transaction : deux caisses ne peuvent jamais vendre la même unité.",
+      "La répartition FEFO découpe une vente sur plusieurs lots et refuse un stock périmé ou insuffisant avec un message clair.",
+      "Les annulations et retours sont enregistrés comme mouvements compensatoires : l’historique n’est jamais réécrit et les prix d’origine sont conservés.",
+      "51 tests automatisés couvrent les règles de gestion RG01 à RG12 : réception comptée une seule fois, vente supérieure au stock refusée, lot périmé refusé, double validation, accès sans permission, restauration d’une sauvegarde.",
+      "Reçus et rapports PDF avec ReportLab, tableau de bord des ventes avec Chart.js, journal d’audit et sauvegardes de la base.",
+      "Fonctionne sans connexion Internet : Bootstrap, Chart.js et les polices sont fournis avec l’application.",
+      "Livré avec un manuel d’installation, un guide d’utilisation et un dossier de conception (MCD, MLD, UML)."
+    ],
+    code:{file:"stock/services.py", src:
+`def repartir_fefo(medicament, quantite):
+    """FEFO : découpe une quantité sur les lots vendables,
+    péremption la plus proche d'abord."""
+    if quantite <= 0:
+        raise StockError("La quantité doit être supérieure à zéro.")
+    if not medicament.est_actif:
+        raise StockError(f"{medicament} est archivé et ne peut pas être vendu.")
+    reste, repartition = quantite, []
+    for lot in medicament.lots_vendables():
+        if reste == 0:
+            break
+        pris = min(reste, lot.quantite_disponible)
+        repartition.append((lot, pris))
+        reste -= pris
+    if reste:
+        raise StockError(f"Stock vendable insuffisant pour {medicament} : "
+                         f"{quantite - reste} disponible(s), {quantite} demandé(s).")
+    return repartition`},
+    run:
+`python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py donnees_demo   # rôles + données de démo avec photos
+python manage.py runserver
+python manage.py test           # lancer les tests`,
+    stack:["Python","Django","SQLite / PostgreSQL","Bootstrap 5","ReportLab","Pillow","Chart.js"]
+  },
+  {
+    id:"numerique-2035", title:"Numérique Malagasy 2035", kind:"Portail d’administration en ligne, React + Supabase",
+    pitch:"Un portail où les citoyens malgaches demandent leurs documents officiels en ligne, avec un moteur algorithmique écrit à la main qui priorise et oriente les demandes.",
+    langs:{tsx:6445, ts:2307, md:469, css:30},
+    facts:[["5","algorithmes codés à la main"],["10","documents de conception"],["≈ 8 800","lignes de TS/TSX"],["2","versions"]],
+    about:[
+      "Les citoyens s’inscrivent, parcourent le catalogue des services administratifs, déposent une demande avec pièces jointes, suivent son avancement et téléchargent le document officiel final. Les agents disposent d’un tableau de bord pour examiner, valider ou rejeter les demandes, générer ou téléverser le document et gérer les services proposés.",
+      "Le projet a commencé par une première version appelée MadaGov, puis a été reconstruit avec une architecture plus propre, un module algorithmique complet et une documentation complète."
+    ],
+    highlights:[
+      "Algorithmes implémentés à la main : KMP et Trie pour la recherche et l’autocomplétion des services, tas binaire pour prioriser les demandes, Dijkstra sur liste d’adjacence pour recommander le meilleur guichet, et arbre de Fenwick pour les statistiques glissantes.",
+      "Un ordonnanceur glouton par priorité est comparé à une file FIFO, avec un script de benchmark qui mesure l’écart.",
+      "Tests unitaires pour la recherche, l’ordonnancement et le routage.",
+      "Back-end Supabase : authentification, schéma PostgreSQL avec migrations et stockage des documents des citoyens.",
+      "Dossier complet : cahier des charges, architecture, schéma de base de données, diagrammes UML de cas d’utilisation, de classes et de séquence, protocole de tests et pitch de cinq minutes."
+    ],
+    code:{file:"lib/algorithms/dijkstra.ts", src:
+`export function dijkstra(graph: Graph, start: string): Record<string, number> {
+  const dist: Record<string, number> = {};
+  const visited: Record<string, boolean> = {};
+  for (const node of Object.keys(graph)) {
+    dist[node] = Infinity;
+    visited[node] = false;
+  }
+  dist[start] = 0;
+  const pq = new MinHeap<string>();
+  pq.push(0, start);
+
+  while (pq.size() > 0) {
+    const top = pq.pop();
+    if (!top) break;
+    const { key: d, value: u } = top;
+    if (visited[u]) continue;
+    visited[u] = true;
+    for (const edge of graph[u] || []) {
+      const alt = d + edge.weight;
+      if (alt < (dist[edge.to] ?? Infinity)) {
+        dist[edge.to] = alt;
+        pq.push(alt, edge.to);
+      }
+    }
+  }
+  return dist;
+}`},
+    run:
+`npm install
+# .env: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
+npm run dev
+npm test             # tests unitaires des algorithmes
+npm run benchmark    # FIFO contre ordonnancement par priorité`,
+    stack:["React","TypeScript","Vite","Tailwind CSS","Supabase","PostgreSQL"]
+  },
+  {
+    id:"garage", title:"Garage", kind:"Application back-end, Spring Boot",
+    pitch:"Gestion d’un garage automobile, avec une interface web et une API REST construites sur les mêmes services.",
+    langs:{java:2897, html:555},
+    facts:[["5","ressources REST"],["3","rôles de sécurité"],["5","exceptions métier"],["Java 17","Spring Boot"]],
+    about:[
+      "Garage suit les clients, véhicules, mécaniciens, interventions, pièces détachées et factures. La clôture d’une intervention génère automatiquement sa facture, et les pièces utilisées sont déduites du stock.",
+      "Les mêmes services métier alimentent deux accès : des pages Thymeleaf rendues côté serveur pour l’accueil, et une API JSON pour d’autres clients."
+    ],
+    highlights:[
+      "Architecture en couches : entités, repositories, services, DTO et mappers, avec des contrôleurs web et REST séparés.",
+      "API REST sous /api pour les clients, véhicules, interventions, pièces et factures, y compris la clôture d’une intervention et l’ajout ou le retrait de pièces.",
+      "Spring Security avec trois rôles : administrateur, mécanicien et accueil.",
+      "Exceptions métier (stock insuffisant, kilométrage invalide, opération non autorisée) gérées par un gestionnaire d’erreurs pour l’API et un autre pour les pages web.",
+      "Recherche paginée des interventions par statut et période, et jeu de données de démonstration chargé au démarrage."
+    ],
+    code:{file:"service/InterventionService.java", src:
+`@Transactional
+public Intervention cloturer(Long id) {
+    log.info("Clôture de l'intervention {}", id);
+    Intervention intervention = trouverParId(id);
+
+    if (intervention.getStatut() == StatutIntervention.TERMINEE
+            || intervention.getStatut() == StatutIntervention.ANNULEE) {
+        throw new OperationNonAutoriseeException(
+                "Impossible de clôturer une intervention déjà " + intervention.getStatut());
+    }
+
+    intervention.setStatut(StatutIntervention.TERMINEE);
+    intervention.setDateFin(LocalDate.now());
+    Intervention sauvegardee = interventionRepository.save(intervention);
+
+    factureService.genererPour(sauvegardee);
+    return sauvegardee;
+}`},
+    run:
+`# renseigner l’URL, l’utilisateur et le mot de passe MySQL dans
+# src/main/resources/application.properties
+mvn spring-boot:run`,
+    stack:["Java 17","Spring Boot","Spring Data JPA","Spring Security","Thymeleaf","MySQL","Maven"]
+  },
+  {
+    id:"tantsaha", title:"Tantsaha Connect", kind:"Prototype d’application mobile, React", minor:true,
+    pitch:"Une application mobile pour les agriculteurs malgaches, entièrement en malgache : météo, prix du marché, calendrier agricole et communauté.",
+    langs:{tsx:1013},
+    facts:[["5","rubriques"],["100 %","interface en malgache"],["Ariary","prix du marché"]],
+    about:[
+      "Tantsaha Connect s’adresse aux agriculteurs qui ont besoin d’informations pratiques dans leur langue. L’application affiche la météo sur sept jours via l’API OpenWeatherMap, les prix du marché en Ariary, un calendrier de plantation et de récolte, et un espace pour échanger des conseils.",
+      "Les écrans ont été conçus sur Figma, puis développés en interface mobile React."
+    ],
+    highlights:[
+      "Tous les libellés et messages sont en malgache, pour un public rural plutôt que francophone.",
+      "Cinq écrans : accueil, météo, prix du marché, calendrier agricole et communauté.",
+      "Météo en temps réel via l’API OpenWeatherMap, avec états de chargement et d’erreur ; la clé d’API reste hors du code, dans une variable d’environnement.",
+      "Mise en page pensée d’abord pour le mobile, à partir d’une maquette Figma, avec React et Tailwind."
+    ],
+    code:null,
+    run:
+`npm install
+cp .env.example .env   # ajouter une clé OpenWeatherMap
+npm run dev`,
+    stack:["React","TypeScript","Tailwind CSS","OpenWeatherMap API","Figma"]
+  }
+];
+
+const $ = (t, cls, txt) => { const e = document.createElement(t); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+function langBar(langs){
+  const total = Object.values(langs).reduce((a,b)=>a+b,0);
+  const frag = document.createDocumentFragment();
+  const bar = $("div","bar"); bar.setAttribute("role","img");
+  const legend = $("div","legend");
+  const parts = [];
+  Object.entries(langs).forEach(([k,n])=>{
+    const pct = n/total*100;
+    const s = $("span"); s.style.width = pct+"%"; s.style.background = `var(${LANG[k].v})`; bar.append(s);
+    const l = $("span"); const dot = $("i"); dot.style.background = `var(${LANG[k].v})`;
+    l.append(dot, document.createTextNode(`${LANG[k].name} ${pct < 1 ? "< 1" : Math.round(pct)} %`));
+    legend.append(l); parts.push(`${LANG[k].name} ${Math.round(pct)} pour cent`);
+  });
+  bar.setAttribute("aria-label","Code par langage : "+parts.join(", "));
+  frag.append(bar, legend); return frag;
+}
+
+function renderIndex(){
+  const nav = document.getElementById("index");
+  PROJECTS.forEach(p=>{
+    const a = $("a","row"+(p.minor?" minor":"")); a.href = "#"+p.id;
+    const top = $("div","rtop"); top.append($("h2","rtitle",p.title), $("span","rkind",p.kind));
+    a.append(top, $("p","rpitch",p.pitch), langBar(p.langs), $("span","open","Voir le projet"));
+    nav.append(a);
+  });
+}
+
+function renderDetail(p){
+  const d = document.getElementById("detail"); d.replaceChildren();
+  const back = $("a","back","← Tous les projets"); back.href = "#"; d.append(back);
+  d.append($("div","dkind",p.kind), $("h1","dtitle",p.title), $("p","dpitch",p.pitch));
+
+  const L = REPOS[p.id] || {};
+  const links = $("div","links");
+  if (L.repo){ const b=$("a","btn primary","Voir le code sur GitHub"); b.href=gh(L.repo); b.target="_blank"; b.rel="noopener"; links.append(b); }
+  if (L.demo){ const b=$("a","btn","Ouvrir la démo"); b.href=L.demo; b.target="_blank"; b.rel="noopener"; links.append(b); }
+  d.append(links);
+  d.append(langBar(p.langs));
+
+  const facts = $("div","facts");
+  p.facts.forEach(([v,l])=>{ const f=$("div"); f.append($("b",null,v),$("small",null,l)); facts.append(f); });
+  d.append(facts);
+
+  const about = $("section","block"); about.append($("h2",null,"Ce que fait le projet"));
+  p.about.forEach(t=>about.append($("p",null,t))); d.append(about);
+
+  const hl = $("section","block"); hl.append($("h2",null,"Comment il est construit"));
+  const ul = $("ul","hl"); p.highlights.forEach(t=>ul.append($("li",null,t))); hl.append(ul); d.append(hl);
+
+  if (p.code){
+    const c = $("section","block"); c.append($("h2",null,"Un extrait du code"));
+    const box = $("div","codebox"); box.append($("div","codehead",p.code.file));
+    const pre = $("pre"); pre.append($("code",null,p.code.src)); box.append(pre); c.append(box); d.append(c);
+  }
+
+  const r = $("section","block"); r.append($("h2",null,"Le lancer en local"));
+  const box = $("div","codebox"); box.append($("div","codehead","terminal"));
+  const pre = $("pre"); pre.append($("code",null,p.run)); box.append(pre); r.append(box); d.append(r);
+
+  const s = $("section","block"); s.append($("h2",null,"Technologies"));
+  const st = $("div","stack"); p.stack.forEach(t=>st.append($("span",null,t))); s.append(st); d.append(s);
+
+  const i = PROJECTS.indexOf(p), nxt = PROJECTS[(i+1)%PROJECTS.length];
+  const np = $("div","nextp");
+  const home = $("a",null,"Tous les projets"); home.href="#";
+  const na = $("a"); na.href="#"+nxt.id; na.append($("small",null,"Projet suivant"), document.createTextNode(nxt.title+" →"));
+  np.append(home, na); d.append(np);
+}
+
+function route(){
+  const id = location.hash.replace("#","");
+  const p = PROJECTS.find(x=>x.id===id);
+  document.getElementById("home").hidden = !!p;
+  document.getElementById("detail").hidden = !p;
+  if (p){ renderDetail(p); document.title = p.title+" – RAVELOSON Anja Christine"; window.scrollTo(0,0); }
+  else { document.title = "RAVELOSON Anja Christine – Projets"; }
+}
+function renderEarlier(){
+  const box = document.getElementById("earlier-list");
+  EARLIER.forEach(e=>{
+    const row = $("div","erow");
+    const a = $("a",null,e.title+" ↗"); a.href = gh(e.repo); a.target="_blank"; a.rel="noopener";
+    const h = $("h3"); h.append(a);
+    row.append(h, $("p",null,e.text)); box.append(row);
+  });
+  const prof = document.getElementById("gh-profile");
+  prof.href = `https://github.com/${GITHUB_USER}`; prof.target="_blank"; prof.rel="noopener";
+}
+renderIndex();
+renderEarlier();
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
